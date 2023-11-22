@@ -23,18 +23,12 @@ namespace DarkerJoinMessage
 
         private void Events_OnPlayerDisconnected(UnturnedPlayer player)
         {
-            foreach (var p in Provider.clients)
-            {
-                ChatManager.serverSendMessage(Translate("LeaveMessage", player.DisplayName), Color.green, null, p, EChatMode.LOCAL);
-            }
+            ChatManager.serverSendMessage(Translate("LeaveMessage", player.DisplayName), Color.green, null, null, EChatMode.GLOBAL);
         }
 
         private void Events_OnPlayerConnected(UnturnedPlayer player)
         {
-            foreach(var p in Provider.clients)
-            {
-                ChatManager.serverSendMessage(Translate("JoinMessage", player.DisplayName),Color.green,null,p, EChatMode.LOCAL);
-            }
+            ChatManager.serverSendMessage(Translate("JoinMessage", player.DisplayName), Color.green, null, null, EChatMode.GLOBAL);
         }
 
 
